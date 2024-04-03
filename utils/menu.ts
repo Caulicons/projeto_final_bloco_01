@@ -5,6 +5,7 @@ import Televisao from "../models/Televisao";
 import ProdutoController from "../controller/ProdutoCrontroller";
 const produtosController = new ProdutoController();
 
+// Para testes
 /* const fogao = new Fogao(produtosController.gerarId(), "Fogão", 2000, 1, 5);
 const televisao = new Televisao(
   produtosController.gerarId(),
@@ -19,7 +20,7 @@ produtosController.cadastrar(televisao); */
 
 export default function menu() {
   let input, id, nome, tipo, preco, polegadas, bocas;
-  let tipoProduto = ["Fogao 🫙", "Televisao 📺"];
+  let tipoProduto = ["Fogao", "Televisao"];
 
   do {
     console.log(`
@@ -57,7 +58,7 @@ export default function menu() {
       console.log("Cadastrar Produto");
       nome = leia.question("Digite o Nome do Produto: ");
       tipo = leia.keyInSelect(tipoProduto, "", { cancel: false }) + 1;
-      preco = leia.questionFloat("Digite o preço: ");
+      preco = leia.questionFloat("Digite o preco: ");
 
       if (tipo == 1) {
         bocas = leia.questionInt("Digite o numero de bocas: ");

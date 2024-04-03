@@ -1,6 +1,6 @@
 import figlet from "figlet";
 import gradient from "gradient-string";
-import sleep from "./sleep.js";
+import sleep from "./sleep";
 
 export default async function logo(ms = 1000) {
   figlet("Houses Bahia.", (err, data) => {
