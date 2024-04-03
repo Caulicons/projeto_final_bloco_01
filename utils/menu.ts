@@ -1,12 +1,11 @@
 import leia = require("readline-sync");
-import keyPress from "./utils/keyPress.js";
-import Fogao from "./models/Fogao.js";
-import Televisao from "./models/Televisao.js";
-import Produto from "./models/Produto.js";
-import ProdutoController from "./controller/ProdutoCrontroller.js";
+import keyPress from "./keyPress";
+import Fogao from "../models/Fogao";
+import Televisao from "../models/Televisao";
+import ProdutoController from "../controller/ProdutoCrontroller";
 const produtosController = new ProdutoController();
 
-const fogao = new Fogao(produtosController.gerarId(), "Fogão", 2000, 1, 5);
+/* const fogao = new Fogao(produtosController.gerarId(), "Fogão", 2000, 1, 5);
 const televisao = new Televisao(
   produtosController.gerarId(),
   "Televisão",
@@ -16,23 +15,23 @@ const televisao = new Televisao(
 );
 
 produtosController.cadastrar(fogao);
-produtosController.cadastrar(televisao);
+produtosController.cadastrar(televisao); */
 
-function menu() {
+export default function menu() {
   let input, id, nome, tipo, preco, polegadas, bocas;
-  let tipoProduto = ["Fogão", "Televisão"];
+  let tipoProduto = ["Fogao 🫙", "Televisao 📺"];
 
   do {
     console.log(`
-[1] - Listar todos os Produtos
-[2] - Listar Produto pelo ID
-[3] - Cadastrar Produto
-[4] - Atualizar Produto
-[5] - Deletar Produto
-[0] - Sair
+1️⃣  - Listar todos os Produtos
+2️⃣  - Listar Produto pelo ID
+3️⃣  - Cadastrar Produto
+4️⃣  - Atualizar Produto
+5️⃣  - Deletar Produto
+0️⃣  - Sair
   `);
 
-    input = leia.questionInt("Escolha uma opção: ");
+    input = leia.questionInt("Escolha uma opcoe: ");
     console.log("\n");
     if (input < 0 || input > 5) {
       console.log("Opção inválida\n");
@@ -40,7 +39,7 @@ function menu() {
   } while (input < 0 || input > 5);
 
   if (input == 0) {
-    console.log("Volte sempre.");
+    console.log("Volte sempre.👋");
     process.exit(0);
   }
 
@@ -61,13 +60,13 @@ function menu() {
       preco = leia.questionFloat("Digite o preço: ");
 
       if (tipo == 1) {
-        bocas = leia.questionInt("Digite o número de bocas: ");
+        bocas = leia.questionInt("Digite o numero de bocas: ");
         produtosController.cadastrar(
           new Fogao(produtosController.gerarId(), nome, preco, tipo, bocas)
         );
         break;
       } else if (tipo == 2) {
-        polegadas = leia.questionInt("Digite o número de polegadas: ");
+        polegadas = leia.questionInt("Digite o numero de polegadas: ");
         produtosController.cadastrar(
           new Televisao(
             produtosController.gerarId(),
@@ -88,24 +87,24 @@ function menu() {
       if (produto !== null) {
         nome = leia.question("Digite o Novo nome do Produto: ");
         tipo = produto.tipo;
-        preco = leia.questionFloat("Digite o preco: ");
+        preco = leia.questionFloat("Digite o Novo preco: ");
 
         switch (tipo) {
           case 1:
-            bocas = leia.questionInt("Digite o número de bocas: ");
+            bocas = leia.questionInt("Digite o numero de bocas: ");
             produtosController.atualizar(
               new Fogao(id, nome, preco, tipo, bocas)
             );
 
             break;
           case 2:
-            polegadas = leia.questionInt("Digite o número de polegadas: ");
+            polegadas = leia.questionInt("Digite o numero de polegadas: ");
             produtosController.atualizar(
               new Televisao(id, nome, preco, tipo, polegadas)
             );
             break;
         }
-      } else console.log("Produto não Encontrado!");
+      } else console.log("Produto não Encontrado! ❌");
       break;
     case 5:
       id = leia.questionInt("Digite o Id do Produto: ");
@@ -114,8 +113,4 @@ function menu() {
   }
 
   keyPress();
-}
-
-while (true) {
-  menu();
 }

@@ -1,4 +1,4 @@
-import Produto from "../models/Produto.js";
+import Produto from "../models/Produto";
 
 export interface ProdutoRepository {
   // Métodos do CRUD ( Create, Read, Update, Delete)

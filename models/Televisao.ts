@@ -1,4 +1,4 @@
-import Produto from "./Produto.js";
+import Produto from "./Produto";
 
 export default class Televisao extends Produto {
   private _polegadas: number;

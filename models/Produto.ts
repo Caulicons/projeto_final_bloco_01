@@ -55,6 +55,6 @@ export default abstract class Produto {
 ID: ${this._id}
 Nome: ${this._nome}
 Preço: R$ ${this._preco.toFixed(2)}
-Tipo: ${this._tipo == 1 ? "Fogão" : "Televisão"}`);
+Tipo: ${this._tipo == 1 ? "Fogão 🫙" : "Televisão 📺"}`);
   }
 }
